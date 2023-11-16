@@ -1,3 +1,11 @@
+
+/* Default styles (Light Mode) */
+body {
+  background-color: #fff; /* Light background */
+  color: #000; /* Dark text */
+}
+
+/* other existing styles... */
 body {
   background-color: #000;
 }
@@ -47,4 +55,25 @@ a {
   99% {
     color: black;
   }
+}
+
+
+/* Dark Mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000; /* Dark background */
+    color: #fff; /* Light text */
+  }
+
+  /* Define other dark mode styles here */
+}
+
+/* Light Mode styles */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff; /* Light background */
+    color: #000; /* Dark text */
+  }
+
+  /* Define other light mode styles here */
 }
