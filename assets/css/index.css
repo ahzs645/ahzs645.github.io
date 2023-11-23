@@ -103,3 +103,16 @@ a {
         background-color: #4caf50; /* Green progress bar for contrast */
     }
 }
+
+#loadingBar {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 50%;
+    background-color: #333; /* Terminal background color */
+    border: 1px solid #fff; /* Border to mimic terminal window */
+}
+
+#loadingBar #progress {
+    background-color: #0f0; /* Green progress bar, typical of terminals */
+}
