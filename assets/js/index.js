@@ -107,3 +107,14 @@ function t() {
     clearInterval(timer);
   }
 }
+
+$(document).ready(function() {
+    // Show the loading bar
+    $('#loadingBar').show();
+
+    // Animate the progress bar
+    $('#progress').animate({width: '100%'}, 2000, function() {
+        // Hide the loading bar after the animation completes
+        $('#loadingBar').fadeOut('fast');
+    });
+});
