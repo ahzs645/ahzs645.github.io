@@ -77,3 +77,29 @@ a {
 
   /* Define other light mode styles here */
 }
+
+/* Loading Progress Bar Styles */
+#loadingBar {
+    position: fixed;
+    width: 100%;
+    height: 5px;
+    background-color: #f0f0f0; /* Light gray background for light mode */
+    top: 0;
+    left: 0;
+}
+
+#loadingBar #progress {
+    height: 100%;
+    background-color: #007bff; /* Blue progress bar */
+    transition: width 2s linear;
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+    #loadingBar {
+        background-color: #333; /* Darker background for dark mode */
+    }
+    #loadingBar #progress {
+        background-color: #4caf50; /* Green progress bar for contrast */
+    }
+}
