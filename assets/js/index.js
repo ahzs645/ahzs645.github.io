@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('#loadingBar').show();
+});
 var Typer = {
   text: "",
   accessCountimer: null,
@@ -111,7 +114,7 @@ function t() {
 
 $(document).ready(function() {
     // Show the terminal loading bar
-    $('#terminalLoadingBar').show();
+    $('#loadingBar').show();
 
     // Initialize progress variables
     var progress = 0;
@@ -126,14 +129,14 @@ $(document).ready(function() {
         if (progress >= 100) {
             progress = 100; // Cap the progress at 100%
             clearInterval(progressInterval); // Stop the interval
-            var loadingText = $('#loadingText');
+            var loadingText = $('#loadingBar');
         if (loadingText.length) { loadingText.show(); } // Show the loading text after progress bar is full
         }
 
         // Update the progress bar and text
-        var progressBlocks = $('#progressBlocks');
+        var progressBlocks = $('#progress');
         if (progressBlocks.length) { progressBlocks.text('█'.repeat(progress / 10)); }
-        var progressPercentage = $('#progressPercentage');
+        var progressPercentage = $('#progress');
         if (progressPercentage.length) { progressPercentage.text('[ ' + progress.toFixed(0) + '%]'); }
     }, interval);
 });
