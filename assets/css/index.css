@@ -131,3 +131,17 @@ a {
 #loadingBar #progress {
     background-color: #0f0; /* Green progress bar, typical of terminals */
 }
+
+#progressBlocks, #progressPercentage, #loadingText {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#progressBlocks {
+    font-family: monospace;
+}
+
+#loadingText {
+    display: none;
+}
