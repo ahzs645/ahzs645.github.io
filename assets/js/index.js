@@ -110,25 +110,27 @@ function t() {
 
 
 $(document).ready(function() {
-    // Delaying the text animation start until after the progress bar completes
-    Typer.init = function() {
-        setTimeout(function() {
-            accessCountimer = setInterval(function() {
-              Typer.updLstChr();
-            }, 500);
-            $.get(Typer.file, function(data) {
-                Typer.text = data;
-                Typer.text = Typer.text.slice(0, Typer.text.length - 1);
-            });
-        }, 3000); // Delay of 3 seconds
-    };
-    
-    // Show the loading bar
-    $('#loadingBar').show();
+    // Show the terminal loading bar
+    $('#terminalLoadingBar').show();
 
-    // Animate the progress bar
-    $('#progress').animate({width: '100%'}, 2000, function() {
-        // Hide the loading bar after the animation completes
-        $('#loadingBar').fadeOut('fast');
-    });
+    // Initialize progress variables
+    var progress = 0;
+    var interval = 30; // Interval in milliseconds to update the progress bar
+    var totalDuration = 3000; // Total duration of 3 seconds for the progress bar to fill
+    var updateStep = (interval / totalDuration) * 100; // How much to increase progress on each update
+
+    // Start the interval to fill the progress bar
+    var progressInterval = setInterval(function() {
+        // Update progress
+        progress += updateStep;
+        if (progress >= 100) {
+            progress = 100; // Cap the progress at 100%
+            clearInterval(progressInterval); // Stop the interval
+            $('#loadingText').show(); // Show the loading text after progress bar is full
+        }
+
+        // Update the progress bar and text
+        $('#progressBlocks').text('█'.repeat(progress / 10));
+        $('#progressPercentage').text('[ ' + progress.toFixed(0) + '%]');
+    }, interval);
 });
