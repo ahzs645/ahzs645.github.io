@@ -108,7 +108,21 @@ function t() {
   }
 }
 
+
 $(document).ready(function() {
+    // Delaying the text animation start until after the progress bar completes
+    Typer.init = function() {
+        setTimeout(function() {
+            accessCountimer = setInterval(function() {
+              Typer.updLstChr();
+            }, 500);
+            $.get(Typer.file, function(data) {
+                Typer.text = data;
+                Typer.text = Typer.text.slice(0, Typer.text.length - 1);
+            });
+        }, 3000); // Delay of 3 seconds
+    };
+    
     // Show the loading bar
     $('#loadingBar').show();
 
