@@ -126,11 +126,14 @@ $(document).ready(function() {
         if (progress >= 100) {
             progress = 100; // Cap the progress at 100%
             clearInterval(progressInterval); // Stop the interval
-            $('#loadingText').show(); // Show the loading text after progress bar is full
+            var loadingText = $('#loadingText');
+        if (loadingText.length) { loadingText.show(); } // Show the loading text after progress bar is full
         }
 
         // Update the progress bar and text
-        $('#progressBlocks').text('█'.repeat(progress / 10));
-        $('#progressPercentage').text('[ ' + progress.toFixed(0) + '%]');
+        var progressBlocks = $('#progressBlocks');
+        if (progressBlocks.length) { progressBlocks.text('█'.repeat(progress / 10)); }
+        var progressPercentage = $('#progressPercentage');
+        if (progressPercentage.length) { progressPercentage.text('[ ' + progress.toFixed(0) + '%]'); }
     }, interval);
 });
