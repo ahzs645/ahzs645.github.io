@@ -110,33 +110,3 @@ function t() {
     clearInterval(timer);
   }
 }
-
-
-$(document).ready(function() {
-    // Show the terminal loading bar
-    $('#loadingBar').show();
-
-    // Initialize progress variables
-    var progress = 0;
-    var interval = 30; // Interval in milliseconds to update the progress bar
-    var totalDuration = 3000; // Total duration of 3 seconds for the progress bar to fill
-    var updateStep = (interval / totalDuration) * 100; // How much to increase progress on each update
-
-    // Start the interval to fill the progress bar
-    var progressInterval = setInterval(function() {
-        // Update progress
-        progress += updateStep;
-        if (progress >= 100) {
-            progress = 100; // Cap the progress at 100%
-            clearInterval(progressInterval); // Stop the interval
-            var loadingText = $('#loadingBar');
-        if (loadingText.length) { loadingText.show(); } // Show the loading text after progress bar is full
-        }
-
-        // Update the progress bar and text
-        var progressBlocks = $('#progress');
-        if (progressBlocks.length) { progressBlocks.text('█'.repeat(progress / 10)); }
-        var progressPercentage = $('#progress');
-        if (progressPercentage.length) { progressPercentage.text('[ ' + progress.toFixed(0) + '%]'); }
-    }, interval);
-});
