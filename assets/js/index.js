@@ -1,6 +1,3 @@
-$(document).ready(function() {
-    $('#loadingBar').show();
-});
 var Typer = {
   text: "",
   accessCountimer: null,
